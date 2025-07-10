@@ -1169,36 +1169,54 @@ const CollegeChatLanding = () => {
           transition={{ delay: 1.3, duration: 0.6 }}
           className="container mx-auto px-4 sm:px-6 py-10 sm:py-16 text-center"
         >
-          <div className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 md:p-12 border border-white/10">
-            <MessageCircle className="w-16 h-16 text-blue-400 mx-auto mb-6" />
-            <h3 className="text-2xl sm:text-3xl font-bold text-white mb-3 sm:mb-4">
-              Ready to Connect?
-            </h3>
-            <p className="text-white/70 text-lg mb-8 max-w-2xl mx-auto">
-              Be among the first to experience the future of college social networking. 
-              Sign up for early access and help shape the platform.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
-              <input
-                type="email"
-                placeholder="Enter your college email"
-                className="flex-1 bg-white/10 backdrop-blur-sm border border-white/20 rounded-xl px-4 py-3 text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-blue-400"
-                onClick={(e) => e.stopPropagation()}
-                onFocus={() => handleOpenEmailPopup()}
-              />
-              <button 
-                className="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 whitespace-nowrap"
-                onClick={handleOpenEmailPopup}
-                style={{ position: 'relative', overflow: 'hidden', WebkitTapHighlightColor: 'transparent' }}
+          <motion.div 
+            className="bg-white/5 backdrop-blur-sm rounded-2xl p-6 sm:p-8 md:p-12 border border-white/10"
+            initial={{ scale: 0.9, opacity: 0 }}
+            animate={{ scale: 1, opacity: 1 }}
+            transition={{
+              type: "spring",
+              stiffness: 100,
+              damping: 10,
+              delay: 1.5
+            }}
+            whileHover={{ 
+              boxShadow: "0 0 20px 5px rgba(120, 120, 255, 0.3)",
+              scale: 1.02,
+              transition: { duration: 0.2 }
+            }}
+          >
+            <motion.div
+              initial={{ opacity: 0, y: -20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 1.8, duration: 0.5 }}
+            >
+              <motion.h3 
+                className="text-2xl sm:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-purple-400 via-blue-400 to-purple-400 mb-3 sm:mb-4"
+                animate={{
+                  backgroundPosition: ["0%", "100%", "0%"],
+                }}
+                transition={{
+                  duration: 5,
+                  ease: "easeInOut",
+                  repeat: Infinity,
+                  repeatType: "reverse",
+                }}
+                style={{ backgroundSize: "200% auto" }}
               >
-                <span className="relative z-10">Get Early Access</span>
-                {/* Add shimmer effect */}
-                <span className="absolute inset-0 overflow-hidden">
-                  <span className="absolute top-0 left-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -skew-x-12 transform -translate-x-full animate-shimmer"></span>
-                </span>
-              </button>
-            </div>
-          </div>
+                College life is too short for boring chats.
+              </motion.h3>
+              
+              <motion.p 
+                className="text-white/70 text-lg mb-8 max-w-2xl mx-auto"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 2.1, duration: 0.5 }}
+                whileHover={{ scale: 1.05, transition: { duration: 0.2 } }}
+              >
+                Join now and talk your heart out.
+              </motion.p>
+            </motion.div>
+          </motion.div>
         </motion.div>
       </div>
     </div>
