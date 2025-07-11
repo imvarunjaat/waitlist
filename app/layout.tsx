@@ -23,8 +23,22 @@ export const metadata: Metadata = {
   title: "ogadda",
   description: "Build for Og's",
   icons: {
-    icon: "/icon.png"
+    icon: "/favicon.ico",
+    apple: "/apple-icon.png",
+    other: [
+      {
+        url: "/web-app-manifest-192x192.png",
+        sizes: "192x192",
+        type: "image/png"
+      },
+      {
+        url: "/web-app-manifest-512x512.png",
+        sizes: "512x512",
+        type: "image/png"
+      }
+    ]
   },
+  manifest: "/manifest.json"
 };
 
 export default function RootLayout({
